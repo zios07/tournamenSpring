@@ -1,6 +1,8 @@
 package com.tournament.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -8,6 +10,7 @@ import javax.persistence.OneToOne;
 public class MatchDetails {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idDetails;
 	
 	@OneToOne

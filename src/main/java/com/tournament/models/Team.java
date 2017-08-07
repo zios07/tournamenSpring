@@ -3,6 +3,8 @@ package com.tournament.models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -10,7 +12,8 @@ import javax.persistence.OneToOne;
 @Entity(name = "TTeam")
 public class Team {
 	
-	@Id
+	@Id 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long ID;
 	
 	private String teamLabel;
