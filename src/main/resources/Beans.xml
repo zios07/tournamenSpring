@@ -18,6 +18,14 @@
 
 	<context:annotation-config />
 
+	<bean id="messages"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:*/messages.properties</value>
+			</list>
+		</property>
+	</bean>
 	
 
 </beans>
