@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-@Entity
+@Entity(name = "TGroup")
 public class Group {
 
 	@Id
@@ -14,10 +14,9 @@ public class Group {
 	
 	private String label;
 	
-	@ManyToOne
+	@OneToMany
 	private List<Team> teams;
 
-	
 	
 	// GETTERS AND SETTERS
 	

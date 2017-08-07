@@ -3,7 +3,7 @@ package com.tournament.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "TUser")
 public class User {
 	
 	@Id

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name = "TTeam")
 public class Team {
 	
 	@Id

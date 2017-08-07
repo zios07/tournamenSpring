@@ -8,7 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+@Entity(name = "TMatch")
 public class Match {	
 	
 	@Id
