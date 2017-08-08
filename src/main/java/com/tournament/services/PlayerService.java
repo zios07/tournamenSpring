@@ -1,5 +1,9 @@
 package com.tournament.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,28 @@ public class PlayerService {
 	public Player createPlayer(Player player) {
 		playerRepository.save(player);
 		return player;
+	}
+
+	public Player getPlayer(long id) {
+		return playerRepository.findOne(id);
+	}
+	
+	public List<Player> getAllPlayers(){
+		Iterator<Player> iterator = playerRepository.findAll().iterator();
+		List<Player> players = new ArrayList<Player>();
+		while(iterator.hasNext()) {
+			players.add(iterator.next());
+		}
+		return players;
+	}
+	
+	public Player updatePlayer(Player player) {
+		playerRepository.save(player);
+		return player;
+	}
+	
+	public void deletePLayer(long id) {
+		playerRepository.delete(id);
 	}
 	
 }
