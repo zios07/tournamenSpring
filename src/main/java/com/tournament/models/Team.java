@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity(name = "TTeam")
 public class Team {
@@ -18,12 +18,14 @@ public class Team {
 	
 	private String teamLabel;
 	
+	private String teamAbbreviation;
+	
 	private String coutry;
 	
 	@OneToMany
 	private List<Player> players;
 	
-	@OneToOne
+	@ManyToOne
 	private Group group;
 	
 	private int points;
@@ -78,6 +80,14 @@ public class Team {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	public String getTeamAbbreviation() {
+		return teamAbbreviation;
+	}
+
+	public void setTeamAbbreviation(String teamAbbreviation) {
+		this.teamAbbreviation = teamAbbreviation;
 	}
 	
 	

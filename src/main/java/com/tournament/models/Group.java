@@ -1,12 +1,9 @@
 package com.tournament.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity(name = "TGroup")
 public class Group {
@@ -16,9 +13,6 @@ public class Group {
 	private long ID;
 	
 	private String label;
-	
-	@OneToMany
-	private List<Team> teams;
 
 	
 	// GETTERS AND SETTERS
@@ -38,15 +32,5 @@ public class Group {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-
-	public List<Team> getTeams() {
-		return teams;
-	}
-
-	public void setTeams(List<Team> teams) {
-		this.teams = teams;
-	}
-	
-	
 	
 }
