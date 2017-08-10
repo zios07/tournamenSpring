@@ -20,7 +20,7 @@ public class Team {
 	
 	private String teamAbbreviation;
 	
-	private String coutry;
+	private String country;
 	
 	@OneToMany
 	private List<Player> players;
@@ -36,7 +36,7 @@ public class Team {
 	
 	public long getID() {
 		return ID;
-	}
+	}	
 
 	public void setID(long iD) {
 		ID = iD;
@@ -50,12 +50,12 @@ public class Team {
 		this.teamLabel = teamLabel;
 	}
 
-	public String getCoutry() {
-		return coutry;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setCoutry(String coutry) {
-		this.coutry = coutry;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public List<Player> getPlayers() {

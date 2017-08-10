@@ -34,9 +34,8 @@ public class PlayerService {
 		return players;
 	}
 	
-	public Player updatePlayer(Player player) {
+	public void updatePlayer(Player player) {
 		playerRepository.save(player);
-		return player;
 	}
 	
 	public void deletePLayer(long id) {

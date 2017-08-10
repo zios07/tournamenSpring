@@ -21,11 +21,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value="/hello")
-	public String sayHi() {
-		return "Hello you !";
-	}
-	
 	@RequestMapping(value = "/user", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String getUser(@RequestParam String login) {
 		

@@ -1,5 +1,7 @@
 package com.tournament.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +13,15 @@ public class TeamService {
 	
 	@Autowired
 	TeamRepository teamRepository;
-
+	
+	public Team getTeam(long id) {
+		return teamRepository.findOne(id);
+	}
+	
+	public List<Team> getTeams(){
+		return (List<Team>) teamRepository.findAll();
+	}
+	
 	public Team addTeam(Team team) {
 		teamRepository.save(team);
 		return team;
@@ -21,4 +31,7 @@ public class TeamService {
 		teamRepository.delete(id);
 	}
 	
+	public void updateTeam(Team team) {
+		teamRepository.save(team);
+	}
 }

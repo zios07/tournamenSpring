@@ -1,6 +1,5 @@
 package com.tournament.controllers;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,20 +9,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tournament.models.Player;
 import com.tournament.services.PlayerService;
 
 @RestController
+@RequestMapping("/players")
 @CrossOrigin
 public class PlayerController {
 
 	@Autowired
 	PlayerService playerService;
 
-	@RequestMapping(value = "/createPlayer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 
 	public Player createPlayer(@RequestBody Player player) {
 
@@ -34,21 +33,31 @@ public class PlayerController {
 		return null;
 	}
 
-	@RequestMapping(value = "/players", method = RequestMethod.GET, 
+	@RequestMapping(method = RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Player> getPlayer(@RequestParam(required = false) Long id) {
-		if (id != null) {
-			return Arrays.asList(playerService.getPlayer(id));
-		} else {
+	public List<Player> getPlayers() {
 			return playerService.getAllPlayers();
-		}
+		
 	}
 	
-	@RequestMapping(value = "/players/delete/{id}", method = RequestMethod.DELETE, 
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public Player getPlayer(@PathVariable long id) {
+		return playerService.getPlayer(id);
+	}
+	
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE, 
 			produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deletePlayer(@PathVariable long id) {
 		playerService.deletePLayer(id);
 		return "Player with ID : "+id+" is deleted";
 	}
 	
-}
+	@RequestMapping(value = "/update" , method = RequestMethod.PUT, 
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void updatePlayer(@RequestBody Player player) {
+		System.out.println("Update called !");
+		playerService.updatePlayer(player);
+	}
+	
+} 
