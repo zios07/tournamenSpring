@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,7 +20,7 @@ public class Match {
 	
 	private String label;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	
 	@OneToOne
@@ -28,6 +29,14 @@ public class Match {
 	@OneToOne
 	private Team teamB;
 	
+	
+	protected static int nb = 1;
+	
+	@PrePersist
+	protected void ensureMatchLabel() {
+		this.setLabel("Match "+nb);
+		nb++;
+	}
 	
 	
 	// GETTERS AND SETTERS
