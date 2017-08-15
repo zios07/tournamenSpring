@@ -31,4 +31,8 @@ public class MatchService {
 		matchRepository.save(match);		
 	}
 	
+	public List<Match> getTodayMatchs() {
+		return matchRepository.getTodayMatchs();
+	}
+	
 }

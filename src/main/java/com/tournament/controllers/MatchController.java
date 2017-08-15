@@ -27,6 +27,11 @@ public class MatchController {
 		return matchService.getMatchs();
 	}
 	
+	@RequestMapping(value="/today", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Match> getTodayMatchs(){
+		return matchService.getTodayMatchs();
+	}
+	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Match getMatch(@PathVariable long id){
 		return matchService.getMatch(id);

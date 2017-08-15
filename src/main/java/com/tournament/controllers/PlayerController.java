@@ -56,7 +56,6 @@ public class PlayerController {
 	@RequestMapping(value = "/update" , method = RequestMethod.PUT, 
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void updatePlayer(@RequestBody Player player) {
-		System.out.println("Update called !");
 		playerService.updatePlayer(player);
 	}
 	
