@@ -13,10 +13,22 @@ public class Group {
 	private long ID;
 	
 	private String label;
+	
+	// Constructors
+	
+	public Group() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Group(long iD, String label) {
+		super();
+		ID = iD;
+		this.label = label;
+	}
 
 	
 	// GETTERS AND SETTERS
-	
+
 	public long getID() {
 		return ID;
 	}

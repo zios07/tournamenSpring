@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -22,7 +23,7 @@ public class Team {
 	
 	private String country;
 	
-	@OneToMany
+	@OneToMany 
 	private List<Player> players;
 	
 	@ManyToOne
@@ -30,7 +31,27 @@ public class Team {
 	
 	private int points;
 
+	@Lob
+	private byte[] avatar;
 	
+	// Constructors
+	
+	public Team() {
+	}
+	
+	
+	public Team(long iD, String teamLabel, String teamAbbreviation, String country, List<Player> players, Group group,
+			int points, byte[] avatar) {
+		ID = iD;
+		this.teamLabel = teamLabel;
+		this.teamAbbreviation = teamAbbreviation;
+		this.country = country;
+		this.players = players;
+		this.group = group;
+		this.points = points;
+		this.avatar = avatar;
+	}
+
 	// GETTERS AND SETTERS
 	
 	
@@ -89,7 +110,13 @@ public class Team {
 	public void setTeamAbbreviation(String teamAbbreviation) {
 		this.teamAbbreviation = teamAbbreviation;
 	}
-	
-	
+
+	public byte[] getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(byte[] avatar) {
+		this.avatar = avatar;
+	}
 	
 }	
